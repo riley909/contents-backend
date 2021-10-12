@@ -9,7 +9,7 @@ export interface Episode {
   id: string;
   title: string;
   price: number;
-  story: string;
+  novel: string;
   isFree: boolean;
   isBuy: boolean;
 }
@@ -24,7 +24,7 @@ export interface Content {
   isUse: boolean;
 }
 
-const contents = [
+export const data = [
   {
     id: '0262163d-e4bc-4b76-bbfd-d4bb65f96d31',
     title: 'Ý TƯƠNG TƯ MÀ TÔI TỪNG CHÔN SÂU',
