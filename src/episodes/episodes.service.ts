@@ -14,4 +14,10 @@ export class EpisodesService {
 
     return episode;
   }
+
+  buyEpisode(content_id: string, episode_id: string): Episode {
+    const episode = this.getEpisodeById(content_id, episode_id);
+    episode.isBuy = true;
+    return episode;
+  }
 }
