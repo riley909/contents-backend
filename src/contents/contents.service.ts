@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { Content } from 'contents-backend';
+import { Content, ContentStatus } from 'contents-backend';
 import { GetContentsFilterDto } from './dto/get-contents-filter.dto';
 import { data } from 'contents-backend';
 import { UpdateContentDto } from './dto/update-content.dto';
@@ -52,6 +52,13 @@ export class ContentsService {
       content.summary = summary;
     }
 
+    return content;
+  }
+
+  closeContentStatus(id: string): Content {
+    const content = this.getContentById(id);
+
+    content.status = ContentStatus.CLOSE;
     return content;
   }
 }
