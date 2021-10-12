@@ -31,7 +31,7 @@ export class ContentsController {
     return this.contentsService.closeContentStatus(id);
   }
 
-  @Patch('/:id/is_use')
+  @Patch('/:id/use')
   closeContentUseStatus(@Param('id') id: string): Content {
     return this.contentsService.closeContentUseStatus(id);
   }
