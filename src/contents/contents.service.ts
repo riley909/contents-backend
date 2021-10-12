@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { Content } from 'contents-backend';
 import { GetContentsFilterDto } from './dto/get-contents-filter.dto';
 import { data } from 'contents-backend';
@@ -20,5 +20,17 @@ export class ContentsService {
     }
 
     return contents;
+  }
+
+  getContentById(id: string): Content {
+    const found = this.contents.find((content) => content.id === id);
+
+    if (!found) {
+      throw new NotFoundException(
+        `ID "${id}"를 가진 컨텐츠가 존재하지 않습니다.`,
+      );
+    }
+
+    return found;
   }
 }
