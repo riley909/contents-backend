@@ -61,4 +61,11 @@ export class ContentsService {
     content.status = ContentStatus.CLOSE;
     return content;
   }
+
+  closeContentUseStatus(id: string): Content {
+    const content = this.getContentById(id);
+
+    content.isUse = false;
+    return content;
+  }
 }
