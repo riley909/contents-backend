@@ -25,4 +25,9 @@ export class ContentsController {
   ): Content {
     return this.contentsService.updateContent(id, updateContentDto);
   }
+
+  @Patch('/:id/status')
+  closeContentStatus(@Param('id') id: string): Content {
+    return this.contentsService.closeContentStatus(id);
+  }
 }
